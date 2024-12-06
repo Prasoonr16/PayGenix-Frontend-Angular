@@ -1,0 +1,149 @@
+<!-- <div class="container mt-5">
+    <h2 class="text-center mb-4">Manage Users</h2>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>User ID</th>
+          <th>Username</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.userID }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.roleID }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm me-3" (click)="editUser(user)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.userID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Manage Users</h2>
+  
+    <!-- Options Menu -->
+    <div class="card shadow-lg mb-4">
+      <div class="card-body text-center">
+        <h4 class="card-title mb-3">Choose an Operation</h4>
+        <div class="d-flex justify-content-around flex-wrap">
+          <button class="btn btn-primary btn-lg mb-2" (click)="selectedOption = 'view'">View Users</button>
+          <button class="btn btn-warning btn-lg mb-2" (click)="selectedOption = 'update'">Update Users</button>
+          <button class="btn btn-danger btn-lg mb-2" (click)="selectedOption = 'delete'">Delete Users</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- View Users Section -->
+    <div *ngIf="selectedOption === 'view'">
+      <h4>All Users</h4>
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>UserID</th>
+            <th>Username</th>
+            <th>RoleID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of data()">
+            <td>{{ user.userID }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.roleID }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Update Users Section -->
+    <div *ngIf="selectedOption === 'update'">
+      <h4 class="text-center mb-4">Update User</h4>
+      <div *ngIf="!selectedUser" class="text-center">
+        <p class="mb-3">Select a user to update:</p>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center user-item"
+            *ngFor="let user of data()"
+            (click)="selectedUser = user"
+          >
+            <div>
+              <strong>UserID:</strong> {{ user.userID }} <br />
+              <strong>Username:</strong> {{ user.username }} <br />
+              <strong>RoleID:</strong> {{ user.roleID }}
+            </div>
+            <button class="btn btn-outline-primary btn-sm">Select</button>
+          </li>
+        </ul>
+      </div>
+    <!-- <div *ngIf="selectedOption === 'update'">
+      <h4>Update User</h4>
+      <div *ngIf="!selectedUser">
+        <p>Select a user to update:</p>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let user of data()"
+            (click)="selectedUser = user"
+          >
+            UserID: {{user.userID}} Username: {{ user.username }} RoleID: {{ user.roleID }}
+          </li>
+        </ul>
+      </div> -->
+      <div *ngIf="selectedUser">
+        <form (submit)="updateUser()">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              class="form-control"
+              id="username"
+              [(ngModel)]="selectedUser.username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select
+              class="form-select"
+              id="role"
+              [(ngModel)]="selectedUser.role"
+              name="role"
+            >
+              <option value="Admin">Admin</option>
+              <option value="Employee">Employee</option>
+              <option value="Manager">Manager</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-warning">Update User</button>
+          <button type="button" class="btn btn-secondary ms-2" (click)="selectedUser = null">
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Delete Users Section -->
+    <div *ngIf="selectedOption === 'delete'">
+      <h4>Delete User</h4>
+      <p>Click "Delete" to remove a user:</p>
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+          *ngFor="let user of users"
+        >
+          {{ user.username }} (Role: {{ user.role }})
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteUser(user.userId)"
+          >
+            Delete
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

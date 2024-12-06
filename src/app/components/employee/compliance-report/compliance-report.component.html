@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <h2>Compliance Report</h2>
+  
+  <!-- Form for Generating Report -->
+  <form (submit)="generateReport()">
+    <!-- Employee ID (Read-only) -->
+    <div class="mb-3">
+      <label for="employeeId" class="form-label">Employee ID</label>
+      <input
+        type="number"
+        class="form-control"
+        id="employeeId"
+        [(ngModel)]="reportDto.employeeID"
+        name="employeeID"
+        disabled
+      />
+    </div>
+    
+    <!-- Issues Found -->
+    <div class="mb-3">
+      <label for="issuesFound" class="form-label">Issues Found</label>
+      <textarea
+        class="form-control"
+        id="issuesFound"
+        [(ngModel)]="reportDto.issuesFound"
+        name="issuesFound"
+        rows="4"
+        required
+      ></textarea>
+    </div>
+    
+    <!-- Comments -->
+    <div class="mb-3">
+      <label for="comments" class="form-label">Comments</label>
+      <textarea
+        class="form-control"
+        id="comments"
+        [(ngModel)]="reportDto.comments"
+        name="comments"
+        rows="3"
+      ></textarea>
+    </div>
+    
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn btn-primary" (click)="generateReport()">Submit Report</button>
+    </div>
+  </form>
+  
+  <!-- Generated Report Display -->
+  <div *ngIf="generatedReport" class="generated-report">
+    <h4>Report Generated Successfully</h4>
+    <pre>{{ generatedReport | json }}</pre>
+  </div>
+</div>

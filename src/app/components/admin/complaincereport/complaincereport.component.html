@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Compliance Reports</h2>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Report ID</th>
+          <th>Employee ID</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of complianceReports">
+          <td>{{ report.reportID }}</td>
+          <td>{{ report.employeeID }}</td>
+          <td>{{ report.complianceStatus}}</td>
+          <td>
+            <button class="btn btn-info btn-sm" (click)="editReport(report)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

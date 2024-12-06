@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Leave Request</h2>
+    <form>
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input type="date" class="form-control" id="startDate" [(ngModel)]="leaveRequest.startDate" name="startDate" required>
+      </div>
+      <div class="mb-3">
+        <label for="endDate" class="form-label">End Date</label>
+        <input type="date" class="form-control" id="endDate" [(ngModel)]="leaveRequest.endDate" name="endDate" required>
+      </div>
+      <div class="mb-3">
+        <label for="leaveType" class="form-label">Leave Type</label>
+        <select class="form-select" id="leaveType" [(ngModel)]="leaveRequest.leaveType" name="leaveType" required>
+          <option value="Sick Leave">Sick Leave</option>
+          <option value="Casual Leave">Casual Leave</option>
+          <option value="Earned Leave">Earned Leave</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="submitLeave()">Submit</button>
+    </form>
+  </div>
+  

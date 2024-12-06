@@ -1,0 +1,55 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  .card {
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #333333;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #666666;
+  }
+  
+  .btn {
+    width: 200px;
+  }
+  
+  .btn-lg {
+    font-size: 1.1rem;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .table-dark {
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .badge {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

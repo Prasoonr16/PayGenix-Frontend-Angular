@@ -1,0 +1,17 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    font-size: 14px;
+  }
+  

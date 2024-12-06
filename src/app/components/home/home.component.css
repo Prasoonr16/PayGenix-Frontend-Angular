@@ -1,0 +1,45 @@
+ h1 {
+    font-weight: bold;
+    font-size: 80px;
+    margin-top: 200px;
+    color: #4f4d4d;
+  }
+/*   
+  .container {
+    margin-top: 1000px;
+    text-align: center;
+  }  */
+
+  /* Styling the Heading */
+.animated-heading {
+  font-size: 4rem; /* Large font size */
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  color: #5a5e5a; /* Eye-catching green color */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  animation: fadeIn 2s ease-in-out, bounce 1s ease-in-out infinite alternate;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-20px);
+  }
+}
+
+

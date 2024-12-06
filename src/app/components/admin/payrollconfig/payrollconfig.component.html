@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Payroll Management</h2>
+    
+    <button class="btn btn-primary mb-3" (click)="addPayroll()">Add Payroll</button>
+    
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Payroll ID</th>
+          <th>Employee ID</th>
+          <th>Basic Salary</th>
+          <th>HRA</th>
+          <th>LTA</th>
+          <th>Gross Pay</th>
+          <th>Deductions</th>
+          <th>Net Pay</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payroll of payrolls">
+          <td>{{ payroll.payrollID }}</td>
+          <td>{{ payroll.employeeID }}</td>
+          <td>₹{{ payroll.basicSalary }}</td>
+          <td>₹{{ payroll.hra }}</td>
+          <td>₹{{ payroll.lta }}</td>
+          <td>₹{{ payroll.grossPay }}</td>
+          <td>₹{{ payroll.deductions }}</td>
+          <td>₹{{ payroll.netPay }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editPayroll(payroll)">Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

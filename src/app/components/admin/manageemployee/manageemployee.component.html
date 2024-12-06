@@ -1,0 +1,211 @@
+<!-- <div class="container mt-5">
+    <h2 class="text-center mb-4">Manage Employees</h2>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.employeeID }}</td>
+          <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.phoneNumber }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm  me-3" (click)="editEmployee(employee)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteEmployee(employee.employeeID)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+   -->
+   <div class="container mt-5">
+    <h2 class="text-center mb-4">Manage Employees</h2>
+  
+    <!-- Card for Menu Operations -->
+    <div class="card shadow-lg mb-4">
+      <div class="card-body text-center">
+        <h4 class="card-title mb-3">Choose an Operation</h4>
+        <p class="card-text mb-4">Select an action to manage employee data effectively.</p>
+        <div class="d-flex justify-content-around flex-wrap">
+          <button class="btn btn-primary btn-lg mb-2" (click)="selectedOption = 'view'">
+            View All Employees
+          </button>
+          <button class="btn btn-success btn-lg mb-2" (click)="selectedOption = 'add'">
+            Add Employee
+          </button>
+          <button class="btn btn-warning btn-lg mb-2" (click)="selectedOption = 'edit'">
+            Edit Employee
+          </button>
+          <button class="btn btn-danger btn-lg mb-2" (click)="selectedOption = 'delete'">
+            Delete Employee
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Conditional Rendering Based on Selection -->
+    <div *ngIf="selectedOption === 'view'">
+      <h4>All Employees</h4>
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of data()">
+            <td>{{ employee.employeeID }}</td>
+            <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.phoneNumber }}</td>
+            <td>{{ employee.position }}</td>
+            <td>{{ employee.department }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="{
+                  'bg-success': employee.activeStatus === 'Active',
+                  'bg-danger': employee.activeStatus === 'Offboarded'
+                }"
+              >
+                {{ employee.activeStatus }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Add Employee Form -->
+    <div *ngIf="selectedOption === 'add'">
+      <h4>Add Employee</h4>
+      <form (submit)="addEmployee()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="newEmployee.firstName" name="firstName" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="newEmployee.lastName" name="lastName" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" [(ngModel)]="newEmployee.email" name="email" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="newEmployee.phoneNumber" name="phoneNumber" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="position" class="form-label">Position</label>
+            <input type="text" class="form-control" id="position" [(ngModel)]="newEmployee.position" name="position" />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="department" class="form-label">Department</label>
+            <input type="text" class="form-control" id="department" [(ngModel)]="newEmployee.department" name="department" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Add Employee</button>
+      </form>
+    </div>
+  
+    <!-- Edit Employee -->
+    <div *ngIf="selectedOption === 'edit'">
+      <h4>Edit Employee</h4>
+      <form (submit)="updateEmployee()">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstName" [(ngModel)]="newEmployee.firstName" name="firstName" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="lastName" [(ngModel)]="newEmployee.lastName" name="lastName" required />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" [(ngModel)]="newEmployee.email" name="email" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="newEmployee.phoneNumber" name="phoneNumber" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="position" class="form-label">Position</label>
+          <input type="text" class="form-control" id="position" [(ngModel)]="newEmployee.position" name="position" />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="department" class="form-label">Department</label>
+          <input type="text" class="form-control" id="department" [(ngModel)]="newEmployee.department" name="department" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Update Employee</button>
+    </form>
+  </div>
+  
+    <!-- Delete Employee Section -->
+<div *ngIf="selectedOption === 'delete'">
+    <h4>Delete Employee</h4>
+    <p>Select an employee from the table below to delete (offboard).</p>
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Position</th>
+          <th>Department</th>
+          <th>Status</th> 
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of data()">
+          <td>{{ employee.employeeID }}</td>
+          <td>{{ employee.firstName }} {{ employee.lastName }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.phoneNumber }}</td>
+          <td>{{ employee.position }}</td>
+          <td>{{ employee.department }}</td>
+          <td>
+            <span
+              class="badge"
+              [ngClass]="{
+                'bg-success': employee.activeStatus === 'Active',
+                'bg-danger': employee.activeStatus === 'Offboarded'
+              }"
+            >
+              {{ employee.activeStatus }}
+            </span>
+          </td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              [disabled]="employee.activeStatus === 'Offboarded'"
+              (click)="deleteEmployee(employee.employeeID)"
+            >
+              Offboard
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  
+  

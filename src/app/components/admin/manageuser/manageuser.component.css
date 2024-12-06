@@ -1,0 +1,89 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  .card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .btn-lg {
+    width: 200px;
+    margin: 5px;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+    color: #007bff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  
+  /* List group styles */
+  .list-group {
+    margin-top: 20px;
+  }
+  
+  .user-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .user-item:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Select button styles */
+  .btn-outline-primary {
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .user-item {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+  
+    .btn-outline-primary {
+      font-size: 0.75rem;
+    }
+}
+  
