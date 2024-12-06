@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UserserviceService } from '../../../services/userservice.service';
+import { UserserviceService } from '../../../services/admin/userservice.service';
 
 @Component({
   selector: 'app-manageuser',

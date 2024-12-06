@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { EmployeeserviceService } from '../../../services/employeeservice.service';
+import { EmployeeserviceService } from '../../../services/admin/employeeservice.service';
 
 @Component({
   selector: 'app-manageemployee',
