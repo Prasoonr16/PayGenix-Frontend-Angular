@@ -1,0 +1,109 @@
+<div class="wrapper">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Hamburger Menu -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasMenu" 
+      aria-controls="offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h2 class="navbar-brand" >PayGenix</h2>
+    <!-- Back Button -->
+    <button class="btn btn-outline-light me-2" (click)="onBack()">
+      <i class="bi bi-arrow-left"></i> Back
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-personal-information"  routerLinkActive="active">Personal-Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-leaverequest" routerLinkActive="active">Request Leave</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/app-pay-stubs"  routerLinkActive="active">Pay-stubs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/app-compliance-report"  routerLinkActive="active">Compliance Report</a>
+        </li>
+      </ul>
+    </div>
+     <!-- Username Display -->
+     <div class="d-flex ms-auto align-items-center">
+      <i class="bi bi-person-circle text-white me-2" style="font-size: 1.5rem;"></i>
+      <span class="navbar-text text-white">
+          <strong>{{username}}</strong>
+      </span> 
+      <button class="btn btn-outline-light me-2" (click)="onLogout()"> <i class="bi bi-box-arrow-right me-1"></i> Logout</button>
+    </div>
+  </div>
+</nav>
+
+<div class="content">
+<!-- <div class="container mt-5"> -->
+    <h2 class="text-center mb-4 portal-header">Welcome to the Self-Service Portal</h2>
+    <div class="row">
+      <!-- Personal Information -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle bg-primary mb-3">
+              <i class="bi bi-person-circle"></i>
+            </div>
+            <h5 class="card-title">Personal Information</h5>
+            <p class="card-text">View and update your personal details.</p>
+            <a routerLink="/app-personal-information" class="btn btn-outline-primary">Go to Personal Info</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Leave Request -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle bg-success mb-3">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <h5 class="card-title">Leave Request</h5>
+            <p class="card-text">Submit leave requests and check their status.</p>
+            <a routerLink="/app-leaverequest" class="btn btn-outline-success">Request Leave</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Pay Stubs -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle bg-warning mb-3">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <h5 class="card-title">Pay Stubs</h5>
+            <p class="card-text">View your pay stubs and salary details.</p>
+            <!-- <button class="btn btn-outline-warning" (click)="showPayStubs()">View Pay Stubs</button> -->
+            <a routerLink="/app-pay-stubs" class="btn btn-outline-info">View Pay Stubs</a>
+          </div>
+        </div>
+      </div>
+
+    <!-- Compliance Report -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-lg border-0">
+        <div class="card-body text-center">
+          <div class="icon-circle bg-info mb-3">
+            <i class="bi bi-file-earmark-check"></i>
+          </div>
+          <h5 class="card-title">Compliance Report</h5>
+          <p class="card-text">Submit and view your compliance reports.</p>
+          <a routerLink="/app-compliance-report" class="btn btn-outline-info">Submit Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<app-footer></app-footer>
+</div>

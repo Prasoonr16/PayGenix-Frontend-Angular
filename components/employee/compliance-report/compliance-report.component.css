@@ -1,0 +1,168 @@
+.navbar {
+  background: linear-gradient(90deg, #4b79a1, #283e51); /* Attractive gradient background */
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Navbar Brand Styling */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Toggler Styling */
+.navbar-toggler {
+  border: none;
+  background-color: #ffffff;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/ %3E%3C/svg%3E");
+}
+
+/* Link Styling */
+.navbar-nav .nav-link {
+  font-size: 1.1rem;
+  color: #d4e157 !important; /* Bright text color */
+  margin-right: 15px;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+.navbar-nav .nav-link:hover {
+  color: #ffd600 !important;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+/* Active Link */
+.navbar-nav .nav-link.active {
+  color: #ffeb3b !important;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .navbar-nav .nav-link {
+      margin-right: 0;
+  }
+}
+
+.btn {
+  border-radius: 20px;
+  font-weight: 600;
+  padding: 10px 20px;
+}
+
+
+/* Page Container */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Header Styling */
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff; /* Primary Bootstrap blue */
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Label Styling */
+  .form-label {
+    font-weight: bold;
+    color: #495057; /* Bootstrap gray */
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Input Fields */
+  .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #80bdff; /* Light blue focus */
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Button Styling */
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue */
+    cursor: pointer;
+  }
+  
+  /* Generated Report Section */
+  .generated-report {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray */
+    border-radius: 10px;
+    border: 1px solid #dee2e6; /* Light gray border */
+  }
+  
+  .generated-report h4 {
+    color: #28a745; /* Success green */
+    margin-bottom: 15px;
+  }
+  
+  pre {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #343a40; /* Bootstrap dark gray */
+    overflow-x: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    h2 {
+      font-size: 20px;
+    }
+  
+    .btn-primary {
+      font-size: 14px;
+      width: 100%; /* Full width button on smaller screens */
+    }
+  }
+
+    .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  
+  /* Content will stretch to fill available space */
+  .content {
+    flex: 1; /* This ensures the content grows and pushes the footer to the bottom */
+    padding: 20px; /* Optional padding */
+  }

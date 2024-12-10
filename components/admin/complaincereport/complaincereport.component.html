@@ -1,0 +1,152 @@
+<div class="wrapper">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Hamburger Menu -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasMenu" 
+      aria-controls="offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h2 class="navbar-brand" >PayGenix</h2>
+    <!-- Back Button -->
+    <button class="btn btn-outline-light me-2" (click)="onBack()">
+      <i class="bi bi-arrow-left"></i> Back
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-manageemployee"  routerLinkActive="active">Manage Employees</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-manageuser" routerLinkActive="active">Manage Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/app-payrollconfig"  routerLinkActive="active">Payroll Config</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/app-complaincereport"  routerLinkActive="active">Compliance Report</a>
+        </li>
+      </ul>
+    </div>
+     <!-- Username Display -->
+     <div class="d-flex ms-auto align-items-center">
+      <i class="bi bi-person-circle text-white me-2" style="font-size: 1.5rem;"></i>
+      <span class="navbar-text text-white">
+          <strong>{{username}}</strong>
+      </span> 
+      <button class="btn btn-outline-light me-2" (click)="onLogout()"> <i class="bi bi-box-arrow-right me-1"></i> Logout</button>
+    </div>
+  </div>
+</nav>
+    <!-- Offcanvas Menu -->
+<div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled">
+      <li><a class="text-light" routerLink="/app-manageemployee">Manage Employees</a></li>
+      <li><a class="text-light" routerLink="/app-manageuser">Manage Users</a></li>
+      <li><a class="text-light" routerLink="/app-payrollconfig">Payroll Config</a></li>
+      <li><a class="text-light" routerLink="/app-complaincereport">Compliance Report</a></li>
+      <li><a class="text-light" routerLink="/logout">Logout</a></li>
+    </ul>
+  </div>
+</div>
+   <div class="content">
+   <!-- <div class="container mt-5"> -->
+    <h2 class="text-center mb-4">Manage Compliance Reports</h2>
+  
+    <!-- Compliance Report List -->
+    <div *ngIf="!selectedReport">
+      <h4>All Compliance Reports</h4>
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Report ID</th>
+            <th>Employee ID</th>
+            <th>Payroll Period</th>
+            <th>Status</th>
+            <th>Resolved</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of complianceReports()">
+            <td>{{ report.reportID }}</td>
+            <td>{{ report.employeeID }}</td>
+            <td>{{ report.payrollPeriod | date: 'MM/yyyy' }}</td>
+            <td>{{ report.complianceStatus }}</td>
+            <td>{{ report.resolvedStatus }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="selectReportForEdit(report)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Edit Compliance Report Form -->
+    <div *ngIf="selectedReport">
+      <h4>Edit Compliance Report</h4>
+      <form (submit)="updateComplianceReport()">
+        <div class="mb-3">
+          <label for="complianceStatus" class="form-label">Compliance Status</label>
+          <input
+            type="text"
+            class="form-control"
+            id="complianceStatus"
+            [(ngModel)]="selectedReport.complianceStatus"
+            name="complianceStatus"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="resolvedStatus" class="form-label">Resolved Status</label>
+          <input
+            type="text"
+            class="form-control"
+            id="resolvedStatus"
+            [(ngModel)]="selectedReport.resolvedStatus"
+            name="resolvedStatus"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="issuesFound" class="form-label">Issues Found</label>
+          <textarea
+            class="form-control"
+            id="issuesFound"
+            [(ngModel)]="selectedReport.issuesFound"
+            name="issuesFound"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="comments" class="form-label">Comments</label>
+          <textarea
+            class="form-control"
+            id="comments"
+            [(ngModel)]="selectedReport.comments"
+            name="comments"
+            rows="3"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Update</button>
+        <button type="button" class="btn btn-secondary ms-2" (click)="cancelEdit()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <!-- <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 PayGenix. All Rights Reserved.</p>
+  </footer>  -->
+   <app-footer></app-footer>
+</div>
+ 
+  

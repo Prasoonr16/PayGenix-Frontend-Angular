@@ -1,0 +1,105 @@
+ /* h1 {
+    font-weight: bold;
+    font-size: 80px;
+    margin-top: 200px;
+    color: #4f4d4d;
+  } */
+/*   
+  .container {
+    margin-top: 1000px;
+    text-align: center;
+  }  */
+
+  /* Styling the Heading */
+/* .animated-heading {
+  font-size: 4rem; /* Large font size */
+  /* font-weight: bold; */
+  /* font-family: 'Poppins', sans-serif; Modern font */
+  /* color: #5a5e5a; Eye-catching green color */
+  /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); Subtle shadow */
+  /* animation: fadeIn 2s ease-in-out, bounce 1s ease-in-out infinite alternate; */
+/* } */ 
+
+/* Fade-in Animation */
+/* @keyframes fadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+} */
+
+/* Bounce Animation */
+/* @keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-20px);
+  }
+} */
+
+.landing-page {
+  background: url('https://media.istockphoto.com/id/1393379249/photo/with-the-earning-payment-person-concept-calculate-payroll-salary-or-wage-accounting-paycheck.jpg?s=612x612&w=0&k=20&c=3aAEtoWaWKv2vKsm0-DwAvn8rM5IDErNmvWlgWkbljU=') no-repeat center center/cover;
+  min-height: calc(100vh - 150px); /* Adjust the height to fit between header and footer */
+  padding-top: 2rem; /* Add some spacing to the top */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.animated-heading {
+  font-size: 70px;
+  font-weight: bold;
+  color: #f9de11;
+  animation: fadeIn 2s ease-in-out, bounce 1s ease-in-out infinite alternate;
+}
+
+.lead {
+  font-size: 2rem;
+  margin-top: 1rem;
+  color: rgb(255, 204, 0);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-20px);
+  }
+}
+

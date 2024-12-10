@@ -1,0 +1,84 @@
+<div class="wrapper">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Hamburger Menu -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasMenu" 
+      aria-controls="offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h2 class="navbar-brand" >PayGenix</h2>
+    <!-- Back Button -->
+    <button class="btn btn-outline-light me-2" (click)="onBack()">
+      <i class="bi bi-arrow-left"></i> Back
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-personal-information"  routerLinkActive="active">Personal-Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-leaverequest" routerLinkActive="active">Request Leave</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/app-pay-stubs"  routerLinkActive="active">Pay-stubs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/app-compliance-report"  routerLinkActive="active">Compliance Report</a>
+        </li>
+      </ul>
+    </div>
+     <!-- Username Display -->
+     <div class="d-flex ms-auto align-items-center">
+      <i class="bi bi-person-circle text-white me-2" style="font-size: 1.5rem;"></i>
+      <span class="navbar-text text-white">
+          <strong>{{username}}</strong>
+      </span> 
+      <button class="btn btn-outline-light me-2" (click)="onLogout()"> <i class="bi bi-box-arrow-right me-1"></i> Logout</button>
+    </div>
+  </div>
+</nav>
+<div class="content">
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Personal Information</h2>
+    <form>
+      <div class="mb-3">
+        <label for="employeeID" class="form-label">Employee ID</label>
+        <input type="text" class="form-control" id="employeeID" [(ngModel)]="employeeDetails.employeeID" name="employeeID" required>
+      </div>
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" [(ngModel)]="employeeDetails.firstName" name="firstName" required>
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" [(ngModel)]="employeeDetails.lastName" name="lastName" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="employeeDetails.email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="employeeDetails.phoneNumber" name="phoneNumber" required>
+      </div>
+      <div class="mb-3">
+        <label for="department" class="form-label">Department</label>
+        <input type="text" class="form-control" id="department" [(ngModel)]="employeeDetails.department" name="department" required>
+      </div>
+      <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="text" class="form-control" id="position" [(ngModel)]="employeeDetails.position" name="position" required>
+      </div>
+      <!-- <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+      </div> -->
+    </form>
+</div>
+  </div>
+  
+  <app-footer></app-footer>
+</div>

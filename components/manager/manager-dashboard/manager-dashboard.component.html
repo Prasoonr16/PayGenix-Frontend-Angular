@@ -1,0 +1,78 @@
+<div class="wrapper">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <!-- Hamburger Menu -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="offcanvas" 
+      data-bs-target="#offcanvasMenu" 
+      aria-controls="offcanvasMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h2 class="navbar-brand" >PayGenix</h2>
+    <!-- Back Button -->
+    <button class="btn btn-outline-light me-2" (click)="onBack()">
+      <i class="bi bi-arrow-left"></i> Back
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-manage-team-payroll"  routerLinkActive="active">Manage Payroll</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/app-update-leaverequest" routerLinkActive="active">Manage Leaves</a>
+        </li>
+      </ul>
+    </div>
+     <!-- Username Display -->
+     <div class="d-flex ms-auto align-items-center">
+      <i class="bi bi-person-circle text-white me-2" style="font-size: 1.5rem;"></i>
+      <span class="navbar-text text-white">
+          <strong>{{username}}</strong>
+      </span> 
+      <button class="btn btn-outline-light me-2" (click)="onLogout()"> <i class="bi bi-box-arrow-right me-1"></i> Logout</button>
+    </div>
+  </div>
+</nav>
+<!-- <div class="wrapper"> -->
+<div class="content">
+  <div class="container mt-5 text-center">
+    <h2 class="text-center mb-4 portal-header">Welcome to the Manager dashboard</h2>
+    <div class="row">
+      <!-- Team Payroll -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle bg-warning mb-3">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+            <h5 class="card-title">Manage Payroll</h5>
+            <p class="card-text">Review and update team's payroll details</p>
+            <a routerLink="/app-manage-team-payroll" class="btn btn-outline-primary">Go to Payroll</a>
+            
+          </div>
+        </div>
+      </div>
+  
+      <!-- Update leave request -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <div class="icon-circle bg-success mb-3">
+              <i class="bi bi-calendar-check"></i>
+            </div>
+            <h5 class="card-title">Update Leave Requests</h5>
+            <p class="card-text">Approve or reject leave requests submitted by empployees</p>
+            <a routerLink="/app-update-leaverequest" class="btn btn-outline-success">Manage Leaves</a>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+     <app-footer></app-footer>
+    </div>
+  <!-- </div> -->
